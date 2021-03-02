@@ -41,8 +41,13 @@ function SignIn() {
   }
 
   return (
-    <button onclick={signInWithGoogle}> Sign in with Google </button>
+    <button onClick={signInWithGoogle}> Sign in with Google </button>
   )
 }
 
+function signOut() {
+  return auth.currentUser && (
+    <button onClick={() => auth.signOut()}>Sign out</button>
+  )
+}
 export default App;
