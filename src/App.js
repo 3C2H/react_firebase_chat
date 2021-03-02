@@ -18,12 +18,18 @@ firebase.initializeApp({
 const auth = firebase.auth()
 const firestore = firebase.firestore()
 
+const [user] = useAuthState(auth)
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
        
       </header>
+      
+      <section>
+        {user ? <ChatRoom /> : <SignIn />}
+      </section>
     </div>
   );
 }
