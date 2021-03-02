@@ -45,9 +45,13 @@ function SignIn() {
   )
 }
 
-function signOut() {
+function SignOut() {
   return auth.currentUser && (
     <button onClick={() => auth.signOut()}>Sign out</button>
   )
+}
+
+function ChatRoom() {
+  const messagesRef = firestore.collection('messages')
 }
 export default App;
