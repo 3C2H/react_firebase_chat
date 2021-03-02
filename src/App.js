@@ -1,22 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import firebase from 'firebase/app'
+import 'firebase/firestore'
+import 'firebase/auth'
+import {useAuthState} from 'react-firebase-hooks/auth'
+import {useCollectionData} from 'react-firebase-hooks/firestore'
+
+firebase.initializeApp({
+  apiKey: "AIzaSyCZKoQxiCBYKq9Acb-bjGUgr_2pl-yFFz8",
+  authDomain: "react-firebase-chat-cc.firebaseapp.com",
+  projectId: "react-firebase-chat-cc",
+  storageBucket: "react-firebase-chat-cc.appspot.com",
+  messagingSenderId: "718532505639",
+  appId: "1:718532505639:web:8d4871ef6b0048c06f1e02",
+  measurementId: "G-SSXC28KD9N"
+})
+
+const auth = firebase.auth()
+const firestore = firebase.firestore()
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+       
       </header>
     </div>
   );
