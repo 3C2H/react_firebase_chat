@@ -26,12 +26,23 @@ function App() {
       <header className="App-header">
        
       </header>
-      
+
       <section>
         {user ? <ChatRoom /> : <SignIn />}
       </section>
     </div>
   );
+}
+
+function SignIn() {
+  const signInWithGoogle = () => {
+    const provider = new firebase.auth.googleAuthProvider()
+    auth.signInWithPopup(provider)
+  }
+
+  return (
+    <button onclick={signInWithGoogle}> Sign in with Google </button>
+  )
 }
 
 export default App;
