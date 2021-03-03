@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef} from 'react';
 import './App.css';
 import firebase from 'firebase/app'
 import 'firebase/firestore'
@@ -58,6 +58,7 @@ function ChatRoom() {
   const query = messagesRef.orderBy('createdAt').limit(25)
   const [messages] = useCollectionData(query, {idField: 'id'})
   const [formValue, setFormValue] = useState('')
+  const dummy = useRef()
 
   const sendMessage = async(e) => {
     e.preventDefault()
@@ -71,12 +72,14 @@ function ChatRoom() {
     })
 
     setFormValue('')
+    dummy.current.scrollIntoView({behavior: 'smooth'})
   }
 
   return (
     <>
       <main>
         {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
+        <div ref={dummy} />
       </main>
 
       <form onSubmit={sendMessage}>
